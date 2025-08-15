@@ -33,7 +33,7 @@ Process nodes can contain interactive UI components:
 ## 🖼️ Screenshots
 
 ### Main Workflow Interface
-![Workflow Builder Main Interface](https://github.com/user/react_workflow/blob/main/screenshots/main-interface.png)
+![Workflow Builder Main Interface](https://github.com/user/react_workflow/blob/screenshots/main-interface.png)
 
 The main interface features:
 - **Left Panel**: Node type selection and color configuration
@@ -42,7 +42,7 @@ The main interface features:
 - **Clean Layout**: Minimal distractions, focus on workflow creation
 
 ### Node Creator Modal
-![Node Creator Modal](https://github.com/user/react_workflow/blob/main/screenshots/node-creator-modal.png)
+![Node Creator Modal](https://github.com/user/react_workflow/blob/screenshots/node-creator-modal.png)
 
 The Node Creator modal provides:
 - **Dark Theme**: Professional dark interface
