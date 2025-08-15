@@ -1,4 +1,4 @@
-# React Workflow Builder
+# React Workflow Builder (Vibe Coding)
 
 A modern, clean, and elegant workflow builder application built with React and ReactFlow library. This project provides an intuitive interface for creating visual workflows with customizable nodes and interactive components.
 
