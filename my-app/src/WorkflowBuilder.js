@@ -101,6 +101,51 @@ function WorkflowBuilder() {
     addNode(nodeConfig);
   }, [addNode]);
 
+  const generateUniqueFileName = () => {
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const randomId = Math.random().toString(36).substr(2, 6);
+    return `workflow_${timestamp}_${randomId}.json`;
+  };
+
+  const saveWorkflowToJSON = useCallback(() => {
+    const workflow = {
+      metadata: {
+        createdAt: new Date().toISOString(),
+        version: '1.0.0',
+        nodeCount: nodes.length,
+        edgeCount: edges.length,
+        description: 'React Workflow Builder Export'
+      },
+      workflow: {
+        nodes: nodes.map(node => ({
+          id: node.id,
+          type: node.type,
+          position: node.position,
+          data: node.data
+        })),
+        edges: edges.map(edge => ({
+          id: edge.id,
+          source: edge.source,
+          target: edge.target,
+          sourceHandle: edge.sourceHandle,
+          targetHandle: edge.targetHandle
+        }))
+      }
+    };
+
+    const fileName = generateUniqueFileName();
+    const dataStr = JSON.stringify(workflow, null, 2);
+    const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
+    
+    const linkElement = document.createElement('a');
+    linkElement.setAttribute('href', dataUri);
+    linkElement.setAttribute('download', fileName);
+    linkElement.click();
+
+    // Show confirmation message
+    alert(`Workflow saved as: ${fileName}\nPlease move the file to the 'promos' folder if needed.`);
+  }, [nodes, edges]);
+
   return (
     <div style={{ width: '100vw', height: '100vh', position: 'relative', background: '#f8f9fa' }}>
       <ControlPanel 
@@ -111,6 +156,7 @@ function WorkflowBuilder() {
         zoomLevel={zoomLevel}
         setZoomLevel={setZoomLevel}
         onAddNode={addNode}
+        onSaveWorkflow={saveWorkflowToJSON}
       />
       
       <div style={{ position: 'absolute', right: '20px', top: '20px' }}>

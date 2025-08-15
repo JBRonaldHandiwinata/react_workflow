@@ -29,11 +29,13 @@ Process nodes can contain interactive UI components:
 - **Expandable Process Nodes**: Click to expand/collapse component containers
 - **Real-time Output Panel**: Visual representation of created nodes
 - **Node Configuration**: Modal-based setup for complex process nodes
+- **Workflow Export**: Save complete workflows as JSON files with unique names
 
 ## 🖼️ Screenshots
 
 ### Main Workflow Interface
 ![Workflow Builder Main Interface](https://github.com/JBRonaldHandiwinata/react_workflow/blob/master/screenshots/main-interface.png)
+![Workflow Builder Main Interface-2](https://github.com/JBRonaldHandiwinata/react_workflow/blob/master/screenshots/main-interface-2.png)
 
 The main interface features:
 - **Left Panel**: Node type selection and color configuration
@@ -50,14 +52,6 @@ The Node Creator modal provides:
 - **Shape Selection**: Choose from Rectangle, Circle, Diamond, Rounded
 - **Live Preview**: See components as you build them
 
-### Process Node with Components
-![Process Node Components](https://github.com/JBRonaldHandiwinata/react_workflow/blob/master/screenshots/process-node-components.png)
-
-Process nodes can expand to show:
-- **Input Fields**: Clean text inputs with labels
-- **Dropdown Menus**: Custom select components with options
-- **Proper Spacing**: No overlapping elements, clean layout
-- **Interactive Elements**: Fully functional form components
 
 ## 🚀 Getting Started
 
@@ -116,6 +110,19 @@ npm start
    - Click buttons and checkboxes
 3. **View Output**: See real-time visualization in the right panel
 
+### Saving Workflows
+
+1. **Create Workflow**: Build your workflow with nodes and connections
+2. **Click Save Button**: Use the "💾 Save Workflow" button in the control panel
+3. **Download File**: The workflow will be saved as a uniquely named JSON file
+4. **Organize Files**: Move downloaded files to the `promos` folder for organization
+
+The saved JSON files contain:
+- Complete workflow structure (nodes and edges)
+- Metadata (creation date, version, node count)
+- All component configurations for process nodes
+- Unique file names with timestamp and random ID
+
 ## 🎨 UI Design Philosophy
 
 ### Color Scheme
@@ -148,32 +155,38 @@ npm start
 ## 📁 Project Structure
 
 ```
-my-app/
-├── src/
-│   ├── components/
-│   │   ├── ControlPanel.js      # Left sidebar controls
-│   │   ├── NodeCreatorModal.js  # Modal for configuring process nodes
-│   │   └── NodeComponents.js    # Reusable input components
-│   ├── nodes/
-│   │   ├── StartNode.js         # Start node component
-│   │   ├── ProcessNode.js       # Process node with expandable components
-│   │   ├── DecisionNode.js      # Decision/branching node
-│   │   └── ResultNode.js        # End/result node
-│   ├── App.js                   # Main application component
-│   ├── App.css                  # Global styles and component styling
-│   ├── WorkflowBuilder.js       # Core workflow management logic
-│   └── index.js                 # Application entry point
-└── public/                      # Static assets
+react_workflow/
+├── my-app/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── ControlPanel.js      # Left sidebar controls with save functionality
+│   │   │   ├── NodeCreatorModal.js  # Modal for configuring process nodes
+│   │   │   └── NodeComponents.js    # Reusable input components
+│   │   ├── nodes/
+│   │   │   ├── StartNode.js         # Start node component
+│   │   │   ├── ProcessNode.js       # Process node with expandable components
+│   │   │   ├── DecisionNode.js      # Decision/branching node
+│   │   │   └── ResultNode.js        # End/result node
+│   │   ├── App.js                   # Main application component
+│   │   ├── App.css                  # Global styles and component styling
+│   │   ├── WorkflowBuilder.js       # Core workflow management logic
+│   │   └── index.js                 # Application entry point
+│   └── public/                      # Static assets
+├── promos/                          # Saved workflow JSON files
+├── screenshots/                     # UI screenshots for documentation
+└── README.md                        # This documentation
 ```
 
 ## 🔮 Future Enhancements
 
-- **Export/Import**: Save and load workflow configurations
+- **Import Functionality**: Load saved workflow JSON files back into the editor
 - **Validation**: Real-time workflow validation and error checking
 - **Templates**: Pre-built workflow templates for common patterns
 - **Collaboration**: Multi-user editing capabilities
 - **Custom Themes**: Additional color schemes and layouts
 - **Performance**: Optimization for large workflows
+- **Cloud Storage**: Direct save to cloud storage providers
+- **Version Control**: Track workflow changes over time
 
 ## 🤝 Contributing
 

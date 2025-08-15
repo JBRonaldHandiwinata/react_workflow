@@ -6,7 +6,8 @@ function ControlPanel({
   selectedNodeType,
   setSelectedNodeType,
   zoomLevel, 
-  setZoomLevel 
+  setZoomLevel,
+  onSaveWorkflow
 }) {
   const nodeTypes = [
     { value: 'start', label: 'Start', icon: '▶', color: '#4CAF50' },
@@ -69,6 +70,18 @@ function ControlPanel({
             className="zoom-slider"
           />
         </div>
+      </div>
+
+      {/* Save Workflow Panel */}
+      <div className="control-panel">
+        <h3>workflow actions</h3>
+        <button 
+          className="save-workflow-btn"
+          onClick={onSaveWorkflow}
+          title="Save workflow to JSON file"
+        >
+          💾 Save Workflow
+        </button>
       </div>
     </div>
   );
