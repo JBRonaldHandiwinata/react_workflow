@@ -1,2 +1,2 @@
 # react_workflow
-poc workflow feature with reactjs
+poc workflow feature with ReactFlow Library
